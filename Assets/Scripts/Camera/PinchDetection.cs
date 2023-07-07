@@ -6,7 +6,11 @@ public class PinchDetection : MonoBehaviour
 {
     [SerializeField]
     private float cameraSpeed = 4f;
-    
+    [SerializeField]
+    private float minZoom = 2f;
+    [SerializeField]
+    private float maxZoom = 10f;
+
     private TouchControls controls;
     private Coroutine zoomCoroutine;
 
@@ -47,7 +51,7 @@ public class PinchDetection : MonoBehaviour
         float previosDistance = 0f, distance = 0f;
         while (true)
         {
-            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 2f, 10f);
+            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minZoom, maxZoom);
             
             distance = Vector2.Distance(controls.Zoominout.PrimaryFingerPosition.ReadValue<Vector2>(), 
                 controls.Zoominout.SecondaryFingerPosition.ReadValue<Vector2>());
