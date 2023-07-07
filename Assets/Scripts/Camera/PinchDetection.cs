@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PinchDetection : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class PinchDetection : MonoBehaviour
     {
         controls.Zoominout.SecondaryTouchContact.started += _ => ZoomStart();
         controls.Zoominout.SecondaryTouchContact.canceled += _ => ZoomEnd();
-        controls.Zoominout.PrimaryTouchContact.canceled += _ => ZoomEnd();
+        // controls.Zoominout.PrimaryTouchContact.canceled += _ => ZoomEnd();
     }
 
     private void ZoomStart()
@@ -49,7 +49,7 @@ public class PinchDetection : MonoBehaviour
     IEnumerator ZoomDetectuon()
     {
         float previosDistance = 0f, distance = 0f;
-        while (true)
+        while (!IsPointerOverUI())
         {
             Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minZoom, maxZoom);
             
@@ -71,5 +71,16 @@ public class PinchDetection : MonoBehaviour
             previosDistance = distance;
             yield return null;
         }
+    }
+    
+    // 檢查觸摸點是否在 UI 元素上
+    private bool IsPointerOverUI()
+    {
+        if (EventSystem.current != null)
+        {
+            // 檢查觸摸點是否在 UI 元素上
+            return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+        }
+        return false;
     }
 }
