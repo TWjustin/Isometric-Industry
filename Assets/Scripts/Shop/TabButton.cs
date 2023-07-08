@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Image))]
 public class TabButton : MonoBehaviour
 {
     public TabGroup tabGroup;
-    
-    public Image background;
     
     public UnityEvent onTabSelected;
     public UnityEvent onTabDeselected;
@@ -22,7 +19,6 @@ public class TabButton : MonoBehaviour
 
     void Start()
     {
-        background = GetComponent<Image>();
         tabGroup.Subscribe(this);
     }
 

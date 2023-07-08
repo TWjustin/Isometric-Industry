@@ -15,13 +15,14 @@ public class GridBuildingSystem : MonoBehaviour
     
     private static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
 
-    private Building temp;
+    public Building temp;
     private Vector3 prevPos;
     private BoundsInt prevArea;
     
     public TileBase whiteTile;
     public TileBase greenTile;
     public TileBase redTile;
+    public GameObject buildingUI;
 
     #region Unity Methods
 
@@ -66,18 +67,6 @@ public class GridBuildingSystem : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (temp.CanBePlaced())
-            {
-                temp.Place();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ClearArea();
-            Destroy(temp.gameObject);
-        }
     }
 
     #endregion
@@ -121,11 +110,16 @@ public class GridBuildingSystem : MonoBehaviour
 
     public void InitializeWithBuilding(GameObject building)
     {
-        temp = Instantiate(building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
+        GameObject spawned = Instantiate(building, Vector3.zero, Quaternion.identity);
+        temp = spawned.GetComponent<Building>();
+        Vector3 uiPos = spawned.transform.position + new Vector3(0f, 3f, 0f);
+        GameObject uiFollow = Instantiate(buildingUI, uiPos, Quaternion.identity);
+        uiFollow.transform.SetParent(spawned.transform);
+        
         FollowBuilding();
     }
 
-    private void ClearArea()
+    public void ClearArea()
     {
         TileBase[] toClear = new TileBase[prevArea.size.x * prevArea.size.y * prevArea.size.z];
         FillTiles(toClear, TileType.Empty);
