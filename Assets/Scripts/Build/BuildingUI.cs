@@ -24,9 +24,9 @@ public class BuildingUI : MonoBehaviour
             temp.transform.localPosition = gridLayout.CellToLocalInterpolated(cellPos 
                                                                               + new Vector3(offset, offset, 0));
             temp.Place();
+            
+            Destroy(gameObject);
         }
-        
-        Destroy(gameObject);
     }
 
     public void Rotate()
