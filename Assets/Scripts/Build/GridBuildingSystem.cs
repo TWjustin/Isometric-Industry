@@ -170,7 +170,7 @@ public class GridBuildingSystem : MonoBehaviour
             }
             
             // 自己加的
-            if (!IfNeighborRoad(b))
+            if (!IfNeighborRoad())
             {
                 Debug.Log("No neighbor road");
                 return false;
@@ -181,14 +181,14 @@ public class GridBuildingSystem : MonoBehaviour
     }
     
     // 自己加的
-    public bool IfNeighborRoad(TileBase tile)
+    public bool IfNeighborRoad()
     {
-        Vector3Int pos = Maintilemap.WorldToCell(temp.gameObject.transform.position);
-        BoundsInt areaTemp = new BoundsInt(pos + new Vector3Int(-1, -1, 0), new Vector3Int(3, 3, 1));
-        
-        foreach (Vector3Int posi in areaTemp.allPositionsWithin)
+        Vector3Int cellPos = gridLayout.WorldToCell(temp.gameObject.transform.position);
+        BoundsInt areaTemp = new BoundsInt(cellPos + new Vector3Int(-1, -1, 0), temp.area.size + new Vector3Int(2, 2, 0));
+
+        foreach (Vector3Int pos in areaTemp.allPositionsWithin)
         {
-            if (Maintilemap.GetTile(posi) == tileBases[TileType.Blue])
+            if (Maintilemap.GetTile(pos) == tileBases[TileType.Blue])
             {
                 return true;
             }
