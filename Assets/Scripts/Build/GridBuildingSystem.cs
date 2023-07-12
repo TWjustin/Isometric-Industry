@@ -22,6 +22,7 @@ public class GridBuildingSystem : MonoBehaviour
     public TileBase whiteTile;
     public TileBase greenTile;
     public TileBase redTile;
+    public TileBase blueTile;
     public GameObject buildingUI;
 
     #region Unity Methods
@@ -37,6 +38,7 @@ public class GridBuildingSystem : MonoBehaviour
         tileBases.Add(TileType.White, whiteTile);
         tileBases.Add(TileType.Green, greenTile);
         tileBases.Add(TileType.Red, redTile);
+        tileBases.Add(TileType.Blue, blueTile);
     }
     
     private void Update()
@@ -141,7 +143,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         for (int i = 0; i < baseArray.Length; i++)
         {
-            if (baseArray[i] == tileBases[TileType.White])
+            if (baseArray[i] == tileBases[TileType.White] || baseArray[i] == tileBases[TileType.Blue])
             {
                 tileArray[i] = tileBases[TileType.Red];
             }
@@ -161,9 +163,16 @@ public class GridBuildingSystem : MonoBehaviour
         TileBase[] baseArray = GetTilesBlock(area, Maintilemap);
         foreach (var b in baseArray)
         {
-            if(b == tileBases[TileType.White])
+            if(b == tileBases[TileType.White] || b == tileBases[TileType.Blue])
             {
                 Debug.Log("Can't take area");
+                return false;
+            }
+            
+            // 自己加的
+            if (!IfNeighborRoad(b))
+            {
+                Debug.Log("No neighbor road");
                 return false;
             }
         }
@@ -171,10 +180,32 @@ public class GridBuildingSystem : MonoBehaviour
         return true;
     }
     
+    // 自己加的
+    public bool IfNeighborRoad(TileBase tile)
+    {
+        Vector3Int pos = Maintilemap.WorldToCell(temp.gameObject.transform.position);
+        BoundsInt areaTemp = new BoundsInt(pos + new Vector3Int(-1, -1, 0), new Vector3Int(3, 3, 1));
+        
+        foreach (Vector3Int posi in areaTemp.allPositionsWithin)
+        {
+            if (Maintilemap.GetTile(posi) == tileBases[TileType.Blue])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public void TakeArea(BoundsInt area)
     {
         SetTilesBlock(area, TileType.Empty, TempTilemap);
         SetTilesBlock(area, TileType.White, Maintilemap);
+    }
+    
+    public void TakeRoadArea(BoundsInt area)
+    {
+        SetTilesBlock(area, TileType.Empty, TempTilemap);
+        SetTilesBlock(area, TileType.Blue, Maintilemap);
     }
 
     #endregion
@@ -185,5 +216,6 @@ public enum TileType
     Empty,
     White,
     Green,
-    Red
+    Red,
+    Blue
 }

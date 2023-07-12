@@ -31,7 +31,14 @@ public class Building : MonoBehaviour
         BoundsInt areaTemp = area;
         areaTemp.position = positionInt;
         Placed = true;
-        GridBuildingSystem.current.TakeArea(areaTemp);
+        if (gameObject.name == "Road(Clone)")
+        {
+            GridBuildingSystem.current.TakeRoadArea(areaTemp);
+        }
+        else
+        {
+            GridBuildingSystem.current.TakeArea(areaTemp);
+        }
     }
 
     #endregion
