@@ -134,6 +134,7 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 1, y: 1, z: 1}
   price: 600
+  peoplePerBuilding: 4
 --- !u!60 &3352406687174636317
 PolygonCollider2D:
   m_ObjectHideFlags: 0

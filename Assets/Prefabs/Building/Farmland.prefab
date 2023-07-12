@@ -102,6 +102,7 @@ MonoBehaviour:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 4, y: 4, z: 1}
   price: 300
+  peopleToAdd: 1
 --- !u!60 &-883366719627897204
 PolygonCollider2D:
   m_ObjectHideFlags: 0

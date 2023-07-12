@@ -112,6 +112,7 @@ public class GridBuildingSystem : MonoBehaviour
     {
         GameObject spawned = Instantiate(building, Vector3.zero, Quaternion.identity);
         temp = spawned.GetComponent<Building>();
+        // 自己加的UI
         Vector3 uiPos = spawned.transform.position + new Vector3(0f, 3f, 0f);
         GameObject uiFollow = Instantiate(buildingUI, uiPos, Quaternion.identity);
         uiFollow.transform.SetParent(spawned.transform);
@@ -140,7 +141,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         for (int i = 0; i < baseArray.Length; i++)
         {
-            if (baseArray[i] == tileBases[TileType.White] || baseArray[i] == tileBases[TileType.Green])
+            if (baseArray[i] == tileBases[TileType.White])
             {
                 tileArray[i] = tileBases[TileType.Red];
             }
@@ -160,7 +161,7 @@ public class GridBuildingSystem : MonoBehaviour
         TileBase[] baseArray = GetTilesBlock(area, Maintilemap);
         foreach (var b in baseArray)
         {
-            if(b == tileBases[TileType.White] || b == tileBases[TileType.Red])
+            if(b == tileBases[TileType.White])
             {
                 Debug.Log("Can't take area");
                 return false;

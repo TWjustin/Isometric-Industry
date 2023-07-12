@@ -9,6 +9,7 @@ public class BuildingUI : MonoBehaviour
     private Building building;
     
     private Text playerMoneyText;
+    private Text populationText;
 
     public float offset = 0.03f;
     
@@ -17,6 +18,7 @@ public class BuildingUI : MonoBehaviour
         gridBuildingSystem = GridBuildingSystem.current;
         building = transform.parent.gameObject.GetComponent<Building>();
         playerMoneyText = GameObject.Find("PlayerMoneyText").GetComponent<Text>();
+        populationText = GameObject.Find("PopNum").GetComponent<Text>();
     }
 
     public void Settle()
@@ -32,6 +34,7 @@ public class BuildingUI : MonoBehaviour
             temp.Place();
 
             Buy();
+            AddPeople();
             Destroy(gameObject);
         }
     }
@@ -56,5 +59,17 @@ public class BuildingUI : MonoBehaviour
             playerMoney -= price;
             playerMoneyText.text = playerMoney.ToString();
         }
+        else
+        {
+            Debug.Log("Not enough money");
+        }
+    }
+    
+    public void AddPeople()
+    {
+        int peopleToAdd = building.peopleToAdd;
+        int totalPeople = int.Parse(populationText.text);
+        totalPeople += peopleToAdd;
+        populationText.text = totalPeople.ToString();
     }
 }

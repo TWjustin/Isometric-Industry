@@ -7,6 +7,7 @@ public class Building : MonoBehaviour
     public bool Placed { get; private set; }
     public BoundsInt area;
     public int price;
+    public int peopleToAdd;
     
     #region Build Methods
 
