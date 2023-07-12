@@ -168,13 +168,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: -3995180223877486626}
+        m_TargetAssemblyTypeName: ShopToMap, Assembly-CSharp
+        m_MethodName: InitializeBuilding
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281eaf1195521bf47acfe1c8094c981c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingToInit: {fileID: 0}
+  buildingToInit: {fileID: 8670454207699774435, guid: ccce367ca9b5ca7438ac21d8f0c66cf5, type: 3}
 --- !u!1 &5825070164918700575
 GameObject:
   m_ObjectHideFlags: 0
