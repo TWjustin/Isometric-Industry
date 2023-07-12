@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +10,7 @@ public class GridBuildingSystem : MonoBehaviour
     public GridLayout gridLayout;
     public Tilemap Maintilemap;
     public Tilemap TempTilemap;
+    public Tilemap RoadTilemap;
     
     private static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
 
@@ -23,6 +22,8 @@ public class GridBuildingSystem : MonoBehaviour
     public TileBase greenTile;
     public TileBase redTile;
     public TileBase blueTile;
+    public TileBase roadTile;
+    
     public GameObject buildingUI;
 
     #region Unity Methods
@@ -39,6 +40,7 @@ public class GridBuildingSystem : MonoBehaviour
         tileBases.Add(TileType.Green, greenTile);
         tileBases.Add(TileType.Red, redTile);
         tileBases.Add(TileType.Blue, blueTile);
+        tileBases.Add(TileType.Road, roadTile);
     }
     
     private void Update()
@@ -161,6 +163,8 @@ public class GridBuildingSystem : MonoBehaviour
     public bool CanTakeArea(BoundsInt area)
     {
         TileBase[] baseArray = GetTilesBlock(area, Maintilemap);
+        TileBase[] roadBasesArray = GetTilesBlock(area, RoadTilemap);
+        
         foreach (var b in baseArray)
         {
             if(b == tileBases[TileType.White] || b == tileBases[TileType.Blue])
@@ -176,6 +180,15 @@ public class GridBuildingSystem : MonoBehaviour
                 return false;
             }
         }
+        
+        foreach (var b in roadBasesArray)
+        {
+            if (b == tileBases[TileType.Road])
+            {
+                Debug.Log("There is a road");
+                return false;
+            }
+        }
 
         return true;
     }
@@ -188,7 +201,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         foreach (Vector3Int pos in areaTemp.allPositionsWithin)
         {
-            if (Maintilemap.GetTile(pos) == tileBases[TileType.Blue])
+            if (RoadTilemap.GetTile(pos) == tileBases[TileType.Road])
             {
                 return true;
             }
@@ -217,5 +230,6 @@ public enum TileType
     White,
     Green,
     Red,
-    Blue
+    Blue,
+    Road
 }
