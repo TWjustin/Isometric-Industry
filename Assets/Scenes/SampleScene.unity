@@ -3985,11 +3985,13 @@ MonoBehaviour:
   gridLayout: {fileID: 1461812992}
   Maintilemap: {fileID: 1230432773}
   TempTilemap: {fileID: 1954525452}
+  RoadTilemap: {fileID: 1957778765}
   temp: {fileID: 0}
   whiteTile: {fileID: 11400000, guid: 57fcd3b7f40ebc44fa49ea2f28ce03ea, type: 2}
   greenTile: {fileID: 11400000, guid: 72e79f917a76ab340bce1b79ac5c4d57, type: 2}
   redTile: {fileID: 11400000, guid: 88635851deaa7fd4dbed8f719683bb28, type: 2}
   blueTile: {fileID: 11400000, guid: dff0d41f54378d24fab2cac2b2b69235, type: 2}
+  roadTile: {fileID: 11400000, guid: 13c722eb30c7efd47ab83015f7fc2cd6, type: 2}
   buildingUI: {fileID: 4831809904203983565, guid: fb1274eb8fe3a4048bf62368ea3157de, type: 3}
 --- !u!1 &1476521213
 GameObject:
@@ -6240,16 +6242,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 0, y: 10, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -1, y: 11, z: 0}
     second:
       serializedVersion: 2
@@ -6262,13 +6254,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data: {fileID: 11400000, guid: 13c722eb30c7efd47ab83015f7fc2cd6, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data: {fileID: 21300000, guid: 9203e6a99490b2b468e513eb113ecd32, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data:
       e00: 1
       e01: 0
@@ -6287,7 +6279,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 46
+  - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1

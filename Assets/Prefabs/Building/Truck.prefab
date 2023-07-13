@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6905541227247596986}
   - component: {fileID: 5944748769048061789}
   - component: {fileID: -2330293875745273933}
-  - component: {fileID: -7129825855759232252}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -103,38 +102,3 @@ MonoBehaviour:
     m_Size: {x: 1, y: 1, z: 1}
   price: 200
   peopleToAdd: 1
---- !u!60 &-7129825855759232252
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8670454207699774435}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.09375, y: 1.03125}
-    newSize: {x: 1.09375, y: 1.03125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.546875, y: 0.4375}
-      - {x: -0.359375, y: 0.15625}
-      - {x: -0.171875, y: 0}
-      - {x: 0.328125, y: 0}
-      - {x: 0.546875, y: 0.09375}
-      - {x: 0.546875, y: 0.65625}
-      - {x: 0.453125, y: 0.96875}
-      - {x: 0.234375, y: 1.03125}
-      - {x: -0.359375, y: 1.03125}
-      - {x: -0.546875, y: 0.875}
