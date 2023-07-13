@@ -5,12 +5,16 @@ public class TruckGenerator : MonoBehaviour
 {
     public BuildingSO buildingSO;
     private Tilemap roadTilemap;
+    private Camera mainCamera;
+    private GameObject shop;
     
     public float offset = 0.1f;
     
     private void Start()
     {
         roadTilemap = GameObject.Find("RoadTilemap").GetComponent<Tilemap>();
+        mainCamera = Camera.main;
+        shop = GameObject.Find("Shop");
     }
 
     public void GenerateOnTiles()
@@ -18,7 +22,8 @@ public class TruckGenerator : MonoBehaviour
         BoundsInt bounds = roadTilemap.cellBounds;
         TileBase[] allTiles = roadTilemap.GetTilesBlock(bounds);
 
-        Vector3Int originCellPos = Vector3Int.zero;
+        Vector3 centerWorldPos = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+        Vector3Int centerCellPos = roadTilemap.WorldToCell(centerWorldPos);
         float closestDistance = Mathf.Infinity;
         Vector3 spawnPos = Vector3.zero;
 
@@ -32,7 +37,7 @@ public class TruckGenerator : MonoBehaviour
                 if (tile != null)
                 {
                     Vector3Int cellPos = roadTilemap.LocalToCell(roadTilemap.CellToLocalInterpolated(tilePos));
-                    float distance = Vector3.Distance(originCellPos, cellPos);
+                    float distance = Vector3.Distance(centerCellPos, cellPos);
 
                     if (distance < closestDistance)
                     {
@@ -46,6 +51,9 @@ public class TruckGenerator : MonoBehaviour
         if (closestDistance != Mathf.Infinity)
         {
             Instantiate(buildingSO.buildingPrefab, spawnPos, Quaternion.identity);
+            shop.SetActive(false);
+            Buy.Instance._Buy(buildingSO);
+            Buy.Instance.AddPeople(buildingSO);
         }
     }
 }

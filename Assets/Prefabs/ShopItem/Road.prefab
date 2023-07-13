@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 313428983468054539}
   - component: {fileID: 8853824647339031501}
   - component: {fileID: 7525867314688913910}
+  - component: {fileID: 4219966354391702060}
   m_Layer: 5
   m_Name: Road
   m_TagString: Untagged
@@ -399,7 +400,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4219966354391702060}
+        m_TargetAssemblyTypeName: RoadPlacement, Assembly-CSharp
+        m_MethodName: StartPlacingRoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7525867314688913910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,3 +429,18 @@ MonoBehaviour:
   buildingImage: {fileID: 313428981745926560}
   buildingNameText: {fileID: 313428981638434917}
   buildingPriceText: {fileID: 313428982768075368}
+--- !u!114 &4219966354391702060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313428983468054536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aedc9cac2d02aa4697ca4ba85cefc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  roadTile: {fileID: 11400000, guid: 13c722eb30c7efd47ab83015f7fc2cd6, type: 2}
+  shop: {fileID: 0}

@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class RoadPlacement : MonoBehaviour
 {
-    public Tilemap tilemap;
+    private Tilemap tilemap;
     public TileBase roadTile;
-    public Button placeRoadButton;
-    public GameObject shop;
+    private GameObject shop;
 
     private bool isPlacingRoad = false;
     private Vector3Int startCellPosition;
@@ -15,7 +14,8 @@ public class RoadPlacement : MonoBehaviour
 
     private void Start()
     {
-        placeRoadButton.onClick.AddListener(StartPlacingRoad);
+        tilemap = GameObject.Find("RoadTilemap").GetComponent<Tilemap>();
+        shop = GameObject.Find("Shop");
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class RoadPlacement : MonoBehaviour
         }
     }
 
-    private void StartPlacingRoad()
+    public void StartPlacingRoad()
     {
         shop.SetActive(false);
         isPlacingRoad = true;
