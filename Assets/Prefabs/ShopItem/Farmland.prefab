@@ -346,7 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281eaf1195521bf47acfe1c8094c981c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingToInit: {fileID: 8955752395799124847, guid: 1ac3cc8ef6819544d8595e2971916066, type: 3}
+  buildingSO: {fileID: 11400000, guid: 3bc811d880f4f854e8a31bd68711e5a6, type: 2}
+  buildingImage: {fileID: 2817924576742139280}
+  buildingNameText: {fileID: 2817924574819256910}
+  buildingPriceText: {fileID: 2817924575624206503}
 --- !u!1 &2817924576742139285
 GameObject:
   m_ObjectHideFlags: 0

@@ -422,4 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281eaf1195521bf47acfe1c8094c981c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingToInit: {fileID: 6227705334169049823, guid: 866b27fc5cea199479ca09e53bfae5c2, type: 3}
+  buildingSO: {fileID: 11400000, guid: fca9e6bdcdfb50d40a4cea67daeb6810, type: 2}
+  buildingImage: {fileID: 4088047694400973881}
+  buildingNameText: {fileID: 4088047694019991376}
+  buildingPriceText: {fileID: 4088047694108696673}

@@ -15,7 +15,6 @@ public class RoadPlacement : MonoBehaviour
 
     private void Start()
     {
-        shop = GameObject.Find("Shop");
         placeRoadButton.onClick.AddListener(StartPlacingRoad);
     }
 

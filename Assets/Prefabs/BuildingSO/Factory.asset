@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249f3072b4b69934c935430101e57be3, type: 3}
+  m_Name: Factory
+  m_EditorClassIdentifier: 
+  price: 600
+  peopleToAdd: 0
+  buildingSprite: {fileID: 21300000, guid: 468e6b0b3aca3564686e1a8c2dcf43dd, type: 3}
+  buildingName: "\u5C0F\u578B\u5DE5\u5EE0"
+  area:
+    m_Position: {x: 0, y: 0, z: 0}
+    m_Size: {x: 1, y: 1, z: 1}
+  buildingPrefab: {fileID: 3749970970590950918, guid: 04b4a4e660bf327409b9a7b5e22ce384, type: 3}

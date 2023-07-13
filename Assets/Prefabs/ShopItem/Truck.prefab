@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5825070164294976127}
   - component: {fileID: -5886115553020075591}
   - component: {fileID: -8615648698109740427}
+  - component: {fileID: 2803542822463922629}
   m_Layer: 5
   m_Name: Truck
   m_TagString: Untagged
@@ -192,7 +193,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134c506cdba84ce44a55b47e95437616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  truckPrefab: {fileID: 8670454207699774435, guid: ccce367ca9b5ca7438ac21d8f0c66cf5, type: 3}
+  buildingSO: {fileID: 11400000, guid: cb98709d1367ce84c8d403024b2199a8, type: 2}
+  offset: 0.1
+--- !u!114 &2803542822463922629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825070164294976124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281eaf1195521bf47acfe1c8094c981c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingSO: {fileID: 11400000, guid: cb98709d1367ce84c8d403024b2199a8, type: 2}
+  buildingImage: {fileID: 5825070164926585812}
+  buildingNameText: {fileID: 5825070164918700561}
+  buildingPriceText: {fileID: 5825070163906500636}
 --- !u!1 &5825070164918700575
 GameObject:
   m_ObjectHideFlags: 0

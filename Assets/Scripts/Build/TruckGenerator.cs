@@ -3,13 +3,14 @@ using UnityEngine.Tilemaps;
 
 public class TruckGenerator : MonoBehaviour
 {
+    public BuildingSO buildingSO;
     private Tilemap roadTilemap;
-    public GameObject truckPrefab;
+    
+    public float offset = 0.1f;
     
     private void Start()
     {
         roadTilemap = GameObject.Find("RoadTilemap").GetComponent<Tilemap>();
-        Debug.Log(roadTilemap);
     }
 
     public void GenerateOnTiles()
@@ -36,7 +37,7 @@ public class TruckGenerator : MonoBehaviour
                     if (distance < closestDistance)
                     {
                         closestDistance = distance;
-                        spawnPos = roadTilemap.CellToWorld(tilePos);
+                        spawnPos = roadTilemap.CellToWorld(tilePos) + new Vector3(offset, offset, 0);
                     }
                 }
             }
@@ -44,7 +45,7 @@ public class TruckGenerator : MonoBehaviour
 
         if (closestDistance != Mathf.Infinity)
         {
-            Instantiate(truckPrefab, spawnPos, Quaternion.identity);
+            Instantiate(buildingSO.buildingPrefab, spawnPos, Quaternion.identity);
         }
     }
 }
