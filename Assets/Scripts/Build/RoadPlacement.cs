@@ -1,18 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.EventSystems;
 
 public class RoadPlacement : MonoBehaviour
 {
     private bool placementMode = false;
     
-    public Tilemap roadTilemap;
-    public TileBase road;
+    private Tilemap roadTilemap;
+    public GameObject roadPrefab;
+    public GameObject uiPrefab;
+    public float offset = 1f;
     
-    public void PlaceRoad()
+    private void Start()
     {
-        Buy.Instance.CloseShop();
-        
+        roadTilemap = GridBuildingSystem.current.RoadTilemap;
+    }
+    
+    public void Update()
+    {
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -49,9 +54,10 @@ public class RoadPlacement : MonoBehaviour
                     direction.y = Mathf.Clamp(direction.y, -1, 1);
 
                     Vector3Int currentPosition = startPosition;
+                    
                     for (int i = 0; i <= distance; i++)
                     {
-                        roadTilemap.SetTile(currentPosition, road);
+                        Instantiate(roadPrefab, roadTilemap.CellToWorld(currentPosition), Quaternion.identity);
                         currentPosition += direction;
                     }
                 }
@@ -59,18 +65,12 @@ public class RoadPlacement : MonoBehaviour
             else if (touch.phase == TouchPhase.Ended)
             {
                 placementMode = false;
+                StartRoad.EndPlace();
+                Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(touchPosition);
+                spawnPosition.z = 0;
+                spawnPosition.y += offset;
+                Instantiate(uiPrefab, spawnPosition, Quaternion.identity);
             }
         }
-    }
-    
-    // 檢查觸摸點是否在 UI 元素上
-    private bool IsPointerOverUI()
-    {
-        if (EventSystem.current != null)
-        {
-            // 檢查觸摸點是否在 UI 元素上
-            return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
-        }
-        return false;
     }
 }

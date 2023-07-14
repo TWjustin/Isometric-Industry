@@ -8,6 +8,7 @@ public class Building : MonoBehaviour
     public BuildingSO buildingSO;
 
     public bool Placed { get; private set; }
+    [HideInInspector]
     public BoundsInt area;
     
     #region Build Methods

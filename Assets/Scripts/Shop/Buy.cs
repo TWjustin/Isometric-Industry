@@ -25,7 +25,6 @@ public class Buy : MonoBehaviour
     {
         playerMoneyText = GameObject.Find("PlayerMoneyText").GetComponent<Text>();
         populationText = GameObject.Find("PopNum").GetComponent<Text>();
-        shop = GameObject.Find("Shop");
     }
 
     public void _Buy(BuildingSO building)
