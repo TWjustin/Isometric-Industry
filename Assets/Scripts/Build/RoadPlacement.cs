@@ -1,65 +1,76 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RoadPlacement : MonoBehaviour
 {
-    private Tilemap tilemap;
-    public TileBase roadTile;
-    private GameObject shop;
-
-    private bool isPlacingRoad = false;
-    private Vector3Int startCellPosition;
-    private Vector3Int endCellPosition;
-
-    private void Start()
+    private bool placementMode = false;
+    
+    public Tilemap roadTilemap;
+    public TileBase road;
+    
+    public void PlaceRoad()
     {
-        tilemap = GameObject.Find("RoadTilemap").GetComponent<Tilemap>();
-        shop = GameObject.Find("Shop");
-    }
-
-    private void Update()
-    {
-        if (isPlacingRoad && Input.GetMouseButton(0))
+        Buy.Instance.CloseShop();
+        
+        if (Input.touchCount > 0)
         {
-            endCellPosition = GetMouseCellPosition();
+            Touch touch = Input.GetTouch(0);
+            Vector2 touchPosition = touch.position;
 
-            // 拖曳時的鋪路邏輯
-            PlaceRoadsBetweenCells(startCellPosition, endCellPosition);
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            isPlacingRoad = false;
-        }
-    }
-
-    public void StartPlacingRoad()
-    {
-        shop.SetActive(false);
-        isPlacingRoad = true;
-        startCellPosition = GetMouseCellPosition();
-    }
-
-    private void PlaceRoadsBetweenCells(Vector3Int start, Vector3Int end)
-    {
-        Vector3Int minPosition = Vector3Int.Min(start, end);
-        Vector3Int maxPosition = Vector3Int.Max(start, end);
-
-        for (int x = minPosition.x; x <= maxPosition.x; x++)
-        {
-            for (int y = minPosition.y; y <= maxPosition.y; y++)
+            // 在這裡使用 touchPosition 進行相應的處理
+            if (touch.phase == TouchPhase.Began)
             {
-                Vector3Int position = new Vector3Int(x, y, 0);
-                tilemap.SetTile(position, roadTile);
+                placementMode = true;
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {
+                if (placementMode)
+                {
+                    Vector3Int startPosition = roadTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(touchPosition));
+                    Vector3Int endPosition = roadTilemap.WorldToCell(Camera.main.ScreenToWorldPoint(touchPosition));
+                    startPosition.z = 0;
+                    endPosition.z = 0;
+                    
+                    // 檢查是否為直線或橫線
+                    if (Mathf.Abs(endPosition.x - startPosition.x) > Mathf.Abs(endPosition.y - startPosition.y))
+                    {
+                        endPosition.y = startPosition.y; // 將終點的y座標設為起點的y座標，形成橫線
+                    }
+                    else
+                    {
+                        endPosition.x = startPosition.x; // 將終點的x座標設為起點的x座標，形成直線
+                    }
+
+                    Vector3Int direction = endPosition - startPosition;
+                    int distance = Mathf.Max(Mathf.Abs(direction.x), Mathf.Abs(direction.y));
+
+                    direction.x = Mathf.Clamp(direction.x, -1, 1);
+                    direction.y = Mathf.Clamp(direction.y, -1, 1);
+
+                    Vector3Int currentPosition = startPosition;
+                    for (int i = 0; i <= distance; i++)
+                    {
+                        roadTilemap.SetTile(currentPosition, road);
+                        currentPosition += direction;
+                    }
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                placementMode = false;
             }
         }
     }
-
-    private Vector3Int GetMouseCellPosition()
+    
+    // 檢查觸摸點是否在 UI 元素上
+    private bool IsPointerOverUI()
     {
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int cellPosition = tilemap.WorldToCell(mouseWorldPos);
-        return cellPosition;
+        if (EventSystem.current != null)
+        {
+            // 檢查觸摸點是否在 UI 元素上
+            return EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+        }
+        return false;
     }
 }

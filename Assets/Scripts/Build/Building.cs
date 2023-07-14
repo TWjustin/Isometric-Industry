@@ -8,17 +8,13 @@ public class Building : MonoBehaviour
     public BuildingSO buildingSO;
 
     public bool Placed { get; private set; }
-    public int price;
-    public int peopleToAdd;
     public BoundsInt area;
     
     #region Build Methods
 
     private void Start()
     {
-        price = buildingSO.price;
-        peopleToAdd = buildingSO.peopleToAdd;
-        area = buildingSO.area;
+        area = buildingSO.area; // GridBuildingSystem會用到
     }
 
     public bool CanBePlaced()
@@ -41,14 +37,8 @@ public class Building : MonoBehaviour
         BoundsInt areaTemp = buildingSO.area;
         areaTemp.position = positionInt;
         Placed = true;
-        if (gameObject.name == "Road(Clone)")
-        {
-            GridBuildingSystem.current.TakeRoadArea(areaTemp);
-        }
-        else
-        {
-            GridBuildingSystem.current.TakeArea(areaTemp);
-        }
+        
+        GridBuildingSystem.current.TakeArea(areaTemp);
     }
 
     #endregion

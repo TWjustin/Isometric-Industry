@@ -7,6 +7,7 @@ public class Buy : MonoBehaviour
     
     private Text playerMoneyText;
     private Text populationText;
+    public GameObject shop;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class Buy : MonoBehaviour
     {
         playerMoneyText = GameObject.Find("PlayerMoneyText").GetComponent<Text>();
         populationText = GameObject.Find("PopNum").GetComponent<Text>();
+        shop = GameObject.Find("Shop");
     }
 
     public void _Buy(BuildingSO building)
@@ -47,5 +49,10 @@ public class Buy : MonoBehaviour
         int totalPeople = int.Parse(populationText.text);
         totalPeople += peopleToAdd;
         populationText.text = totalPeople.ToString();
+    }
+    
+    public void CloseShop()
+    {
+        shop.SetActive(false);
     }
 }

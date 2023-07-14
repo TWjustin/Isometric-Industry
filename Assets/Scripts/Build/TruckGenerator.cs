@@ -6,7 +6,6 @@ public class TruckGenerator : MonoBehaviour
     public BuildingSO buildingSO;
     private Tilemap roadTilemap;
     private Camera mainCamera;
-    private GameObject shop;
     
     public float offset = 0.1f;
     
@@ -14,7 +13,6 @@ public class TruckGenerator : MonoBehaviour
     {
         roadTilemap = GameObject.Find("RoadTilemap").GetComponent<Tilemap>();
         mainCamera = Camera.main;
-        shop = GameObject.Find("Shop");
     }
 
     public void GenerateOnTiles()
@@ -51,9 +49,9 @@ public class TruckGenerator : MonoBehaviour
         if (closestDistance != Mathf.Infinity)
         {
             Instantiate(buildingSO.buildingPrefab, spawnPos, Quaternion.identity);
-            shop.SetActive(false);
             Buy.Instance._Buy(buildingSO);
             Buy.Instance.AddPeople(buildingSO);
+            Buy.Instance.CloseShop();
         }
     }
 }

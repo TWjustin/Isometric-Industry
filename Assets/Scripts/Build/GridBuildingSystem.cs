@@ -21,7 +21,6 @@ public class GridBuildingSystem : MonoBehaviour
     public TileBase whiteTile;
     public TileBase greenTile;
     public TileBase redTile;
-    public TileBase blueTile;
     public TileBase roadTile;
     
     public GameObject buildingUI;
@@ -39,7 +38,6 @@ public class GridBuildingSystem : MonoBehaviour
         tileBases.Add(TileType.White, whiteTile);
         tileBases.Add(TileType.Green, greenTile);
         tileBases.Add(TileType.Red, redTile);
-        tileBases.Add(TileType.Blue, blueTile);
         tileBases.Add(TileType.Road, roadTile);
     }
     
@@ -145,7 +143,7 @@ public class GridBuildingSystem : MonoBehaviour
 
         for (int i = 0; i < baseArray.Length; i++)
         {
-            if (baseArray[i] == tileBases[TileType.White] || baseArray[i] == tileBases[TileType.Blue])
+            if (baseArray[i] == tileBases[TileType.White])
             {
                 tileArray[i] = tileBases[TileType.Red];
             }
@@ -167,7 +165,7 @@ public class GridBuildingSystem : MonoBehaviour
         
         foreach (var b in baseArray)
         {
-            if(b == tileBases[TileType.White] || b == tileBases[TileType.Blue])
+            if(b == tileBases[TileType.White])
             {
                 Debug.Log("Can't take area");
                 return false;
@@ -214,12 +212,6 @@ public class GridBuildingSystem : MonoBehaviour
         SetTilesBlock(area, TileType.Empty, TempTilemap);
         SetTilesBlock(area, TileType.White, Maintilemap);
     }
-    
-    public void TakeRoadArea(BoundsInt area)
-    {
-        SetTilesBlock(area, TileType.Empty, TempTilemap);
-        SetTilesBlock(area, TileType.Blue, Maintilemap);
-    }
 
     #endregion
 }
@@ -230,6 +222,5 @@ public enum TileType
     White,
     Green,
     Red,
-    Blue,
     Road
 }
