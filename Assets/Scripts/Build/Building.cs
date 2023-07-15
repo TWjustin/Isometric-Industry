@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    // 自己加的
     public BuildingSO buildingSO;
+    public bool isMoving;
 
+    // Placement
     public bool Placed { get; private set; }
     [HideInInspector]
     public BoundsInt area;
     
-    #region Build Methods
-
     private void Start()
     {
         area = buildingSO.area; // GridBuildingSystem會用到
     }
+    
+    #region Build Methods
 
     public bool CanBePlaced()
     {
@@ -38,6 +41,7 @@ public class Building : MonoBehaviour
         BoundsInt areaTemp = buildingSO.area;
         areaTemp.position = positionInt;
         Placed = true;
+        isMoving = false;
         
         GridBuildingSystem.current.TakeArea(areaTemp);
     }

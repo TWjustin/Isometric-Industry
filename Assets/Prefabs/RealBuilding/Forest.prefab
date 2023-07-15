@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 971761407203365559}
   m_Layer: 0
   m_Name: Forest
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSO: {fileID: 11400000, guid: 6ce870679d7c3f841985edaed2dd5686, type: 2}
-  price: 800
-  peopleToAdd: 2
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 1}

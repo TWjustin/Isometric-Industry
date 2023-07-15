@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1136588546420653132}
   m_Layer: 0
   m_Name: Mine
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,8 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSO: {fileID: 11400000, guid: 5fd6269809fb5934a9c21393786e7d34, type: 2}
-  price: 1200
-  peopleToAdd: 4
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 2, y: 2, z: 1}

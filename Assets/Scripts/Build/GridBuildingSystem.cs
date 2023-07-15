@@ -114,7 +114,10 @@ public class GridBuildingSystem : MonoBehaviour
     {
         GameObject spawned = Instantiate(building, Vector3.zero, Quaternion.identity);
         temp = spawned.GetComponent<Building>();
-        // 自己加的UI
+        
+        // 自己加的
+        temp.isMoving = true;
+        // UI
         Vector3 uiPos = spawned.transform.position + new Vector3(0f, 3f, 0f);
         GameObject uiFollow = Instantiate(buildingUI, uiPos, Quaternion.identity);
         uiFollow.transform.SetParent(spawned.transform);
@@ -141,7 +144,7 @@ public class GridBuildingSystem : MonoBehaviour
         int size = baseArray.Length;
         TileBase[] tileArray = new TileBase[size];
 
-        for (int i = 0; i < baseArray.Length; i++)
+        for (int i = 0; i < size; i++)
         {
             if (baseArray[i] == tileBases[TileType.White])
             {

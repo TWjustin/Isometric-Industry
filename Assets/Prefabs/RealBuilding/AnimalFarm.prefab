@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2861679384123020040}
   m_Layer: 0
   m_Name: AnimalFarm
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSO: {fileID: 11400000, guid: fca9e6bdcdfb50d40a4cea67daeb6810, type: 2}
-  price: 400
-  peopleToAdd: 1
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 4, y: 4, z: 1}

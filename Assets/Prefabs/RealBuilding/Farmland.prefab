@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -883366719627897204}
   m_Layer: 0
   m_Name: Farmland
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSO: {fileID: 11400000, guid: 3bc811d880f4f854e8a31bd68711e5a6, type: 2}
-  price: 300
-  peopleToAdd: 1
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 4, y: 4, z: 1}
