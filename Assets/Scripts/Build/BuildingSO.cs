@@ -10,6 +10,7 @@ public class BuildingSO : ScriptableObject
     
     public Sprite buildingSprite;
     public string buildingName;
+    public string execution;
     
     public BoundsInt area;
     public GameObject buildingPrefab;

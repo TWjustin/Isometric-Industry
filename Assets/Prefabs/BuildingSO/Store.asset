@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 249f3072b4b69934c935430101e57be3, type: 3}
-  m_Name: Warehouse
+  m_Name: Store
   m_EditorClassIdentifier: 
-  price: 600
+  price: 500
   peopleToAdd: 1
-  buildingSprite: {fileID: 21300000, guid: 117f02ccee19b794c9a70283a609af87, type: 3}
-  buildingName: "\u5009\u5EAB"
+  buildingSprite: {fileID: 21300000, guid: a283965973465c94bae2f09a3fe4e3b6, type: 3}
+  buildingName: "\u5546\u5E97"
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 1, y: 1, z: 1}
-  buildingPrefab: {fileID: 8406049864959131768, guid: 3842aeb9ffa9b5e468e9fb50223f2ca9, type: 3}
+  buildingPrefab: {fileID: 4611746390526153682, guid: ba3e0f854ca39ef4fbf0acf0a804aaf9, type: 3}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7eadf07a0707f4daf3f7609e99699c, type: 3}
+  m_Name: Cotton
+  m_EditorClassIdentifier: 
+  cropName: "\u68C9\u82B1"
+  price: 40
+  cropIcon: {fileID: 21300000, guid: 3451dc81e48345c4590a6f1773c2d5c9, type: 3}
+  timeToGrow: 5
+  harvestAmount: 10
+  growingSprite: []

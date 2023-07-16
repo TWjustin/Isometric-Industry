@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7eadf07a0707f4daf3f7609e99699c, type: 3}
+  m_Name: CoffeeBean
+  m_EditorClassIdentifier: 
+  cropName: "\u5496\u5561\u8C46"
+  price: 100
+  cropIcon: {fileID: 21300000, guid: a48d0a58943e4424ab1bae7d356b92f0, type: 3}
+  timeToGrow: 5
+  harvestAmount: 20
+  growingSprite: []

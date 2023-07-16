@@ -24,6 +24,9 @@ public class ProductTimer : MonoBehaviour
     [SerializeField] private Text timeLeftText;
     [SerializeField] private Button skipButton;
     
+    // 我寫的
+    public FarmingSO farmingSO;
+    
 
     #region UI Methods
 
