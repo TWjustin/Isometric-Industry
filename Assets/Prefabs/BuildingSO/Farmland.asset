@@ -15,7 +15,9 @@ MonoBehaviour:
   price: 300
   peopleToAdd: 1
   buildingSprite: {fileID: 21300000, guid: 851058965262c3d4a9f45b680ea1049b, type: 3}
+  isFarm: 1
   buildingName: "\u8FB2\u7530"
+  execution: "\u7A2E\u690D"
   area:
     m_Position: {x: 0, y: 0, z: 0}
     m_Size: {x: 4, y: 4, z: 1}

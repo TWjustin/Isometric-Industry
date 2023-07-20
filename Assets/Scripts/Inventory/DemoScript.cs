@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DemoScript : MonoBehaviour
 {
-    [FormerlySerializedAs("inventoryManager")] public Inventory inventory;
+    public Inventory inventory;
     public Item[] itemsToPickUp;
 
     public void PickUpItem(int id)

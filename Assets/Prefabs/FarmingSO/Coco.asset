@@ -15,6 +15,9 @@ MonoBehaviour:
   cropName: "\u53EF\u53EF\u8C46"
   price: 100
   cropIcon: {fileID: 21300000, guid: cb691d85d924cb64c9a07e2d07390eb5, type: 3}
-  timeToGrow: 5
   harvestAmount: 10
   growingSprite: []
+  cropItem: {fileID: 11400000, guid: 473ccb0dc96ecf149a5ab66d9b24aaba, type: 2}
+  Hours: 0
+  Minutes: 0
+  Seconds: 5

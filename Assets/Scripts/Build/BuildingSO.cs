@@ -9,6 +9,7 @@ public class BuildingSO : ScriptableObject
     public int peopleToAdd;
     
     public Sprite buildingSprite;
+    public bool isFarm;
     public string buildingName;
     public string execution;
     
